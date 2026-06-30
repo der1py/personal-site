@@ -1,120 +1,69 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import Navbar from './components/Navbar'
+import ProjectCard from './components/ProjectCard'
+import Section from './components/Section'
+import Links from './components/Links'
+import snake2 from './assets/projects/snake2.png'
+import cubeForce from './assets/projects/cube-force.png'
+import leavesSegModel from './assets/projects/leaves-segmentation-model.png'
+import timetable from './assets/projects/timetable.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
+      <Navbar />
+
+      <main>
+        <Section id="about" title="Hi, I'm Luke :D" headingLevel="h1">
           <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            Software Engineering @ UWaterloo
+            <br/>
+            I like learning about programming and building cool projects.
+            I've worked with applied ML, constraint programming, game dev, and web dev. 
+            Outside of tech, I enjoy playing badminton.
+            I'd be down to connect at any of the <a href="/#links">links</a> below!
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+        </Section>
 
-      <div className="ticks"></div>
+        <Section id="projects" title="Projects">
+          <div className="projects-grid">
+            <ProjectCard
+              title="Leaves Segmentation Model"
+              description="Interned with UVic’s ECE department, developing an ML image segmentation model using PyTorch Lightning to detect leaves, which can significantly obstruct satellite signals. This model performed well with real-world test cases."
+              image={leavesSegModel}
+            />
+            <ProjectCard
+              title="Snake2"
+              description="Snake2 puts a unique spin on the classic Snake game by pitting two players against each other in a fast-paced, competitive duel. 
+              Features a CPU controlled player using heuristic scoring."
+              image={snake2}
+              href="https://github.com/der1py/snake2"
+              demo="https://der1py.github.io/snake2/"
+            />
+            <ProjectCard
+              title="Cube Force"
+              description="An arena shooter game supporting up to 4 players, written entirely in Java for a school project."
+              image={cubeForce}
+              href="https://github.com/LordoCreations/CSGame"
+            />
+            <ProjectCard
+              title="School Timetable Optimizer"
+              description="A constraint-programming project that builds a school-wide master timetable and assigns students to course sections across eight blocks, using real school data.
+              The project uses Google's CP-SAT Solver to build an optimized timetable."
+              image={timetable}
+              href="https://github.com/der1py/APCS-Final-Project"
+            />
+          </div>
+        </Section>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <Section id="links" title="Links">
+          <Links />
+        </Section>
+      </main>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <footer>
+        <p>&copy; {new Date().getFullYear()} Luke Fan</p>
+      </footer>
     </>
   )
 }
