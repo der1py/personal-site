@@ -28,7 +28,15 @@ function Navbar() {
 
 function Switch() {
   const [isDark, setIsDark] = useState(
-    () => localStorage.getItem('theme') === 'dark',
+    () => {
+      const savedTheme = localStorage.getItem('theme')
+
+      return (
+        savedTheme === 'dark' ||
+        (savedTheme === null &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      )
+    },
   )
 
   useEffect(() => {
