@@ -19,7 +19,7 @@ function App() {
             Software Engineering @ UWaterloo
             <br/>
             I like learning about programming and building cool projects.
-            I've worked with applied ML, constraint programming, game dev, and web dev. 
+            I've had experience with applied ML, constraint programming, robotics, game dev, and web dev. 
             Outside of tech, I enjoy playing badminton.
             I'd be down to connect at any of the <a href="/#links">links</a> below!
           </p>
