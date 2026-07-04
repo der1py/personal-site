@@ -6,6 +6,7 @@ import snake2 from './assets/projects/snake2.png'
 import cubeForce from './assets/projects/cube-force.png'
 import leavesSegModel from './assets/projects/leaves-segmentation-model.png'
 import timetable from './assets/projects/timetable.png'
+import FrogGameWidget from './frog-widget';
 import './App.css'
 
 function App() {
@@ -60,6 +61,8 @@ function App() {
           <Links />
         </Section>
       </main>
+
+      <FrogGameWidget />
 
       <footer>
         <p>&copy; {new Date().getFullYear()} Luke Fan</p>
