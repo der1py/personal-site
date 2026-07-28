@@ -1,13 +1,14 @@
-import Navbar from './components/Navbar'
-import ProjectCard from './components/ProjectCard'
-import Section from './components/Section'
-import Links from './components/Links'
-import snake2 from './assets/projects/snake2.png'
-import cubeForce from './assets/projects/cube-force.png'
-import leavesSegModel from './assets/projects/leaves-segmentation-model.png'
-import timetable from './assets/projects/timetable.png'
-import FrogGameWidget from './frog-widget';
-import './App.css'
+import Navbar from "./components/Navbar";
+import ProjectCard from "./components/ProjectCard";
+import Section from "./components/Section";
+import Links from "./components/Links";
+import snake2 from "./assets/projects/snake2.png";
+import cubeForce from "./assets/projects/cube-force.png";
+import leavesSegModel from "./assets/projects/leaves-segmentation-model.png";
+import timetable from "./assets/projects/timetable.png";
+import apvp from "./assets/projects/apvp.png";
+import FrogGameWidget from "./frog-widget";
+import "./App.css";
 
 function App() {
   return (
@@ -18,11 +19,11 @@ function App() {
         <Section id="about" title="Hi, I'm Luke :D" headingLevel="h1">
           <p>
             Software Engineering @ UWaterloo
-            <br/>
-            I like learning about programming and building cool projects.
-            I've had experience with applied ML, constraint programming, robotics, game dev, and web dev. 
-            Outside of tech, I enjoy playing badminton.
-            I'd be down to connect at any of the <a href="/#links">links</a> below!
+            <br />I like learning about programming and building cool projects.
+            I've had experience with applied ML, constraint programming,
+            robotics, game dev, and web dev. Outside of tech, I enjoy playing
+            badminton. I'd be down to connect at any of the{" "}
+            <a href="/#links">links</a> below!
           </p>
         </Section>
 
@@ -34,6 +35,13 @@ function App() {
               image={leavesSegModel}
             />
             <ProjectCard
+              title="APvP"
+              description="APvP is a multiplayer first-person shooter. Players can move, aim, shoot, and use abilities in real-time multiplayer matches directly from the browser."
+              image={apvp}
+              href="https://github.com/der1py/APvP"
+              demo="https://youtu.be/d7H7tDY3jaM"
+            />
+            <ProjectCard
               title="Snake2"
               description="Snake2 puts a unique spin on the classic Snake game by pitting two players against each other in a fast-paced, competitive duel. 
               Features a CPU controlled player using heuristic scoring."
@@ -43,7 +51,7 @@ function App() {
             />
             <ProjectCard
               title="Cube Force"
-              description="An arena shooter game supporting up to 4 players, written entirely in Java for a school project."
+              description="An arena shooter game supporting up to 4 players, written entirely in Java."
               image={cubeForce}
               href="https://github.com/LordoCreations/CSGame"
             />
@@ -68,7 +76,7 @@ function App() {
         <p>&copy; {new Date().getFullYear()} Luke Fan</p>
       </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
