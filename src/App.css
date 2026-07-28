@@ -74,7 +74,29 @@ html {
   background: var(--color-control-icon-active);
   content: "";
   transform: translateY(-50%);
-  transition: background 250ms ease, transform 250ms ease;
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms ease;
+}
+
+/* Crescent "bite" overlay — a circle the color of the track that slides into
+   position over ::before to create the moon shape. Uses transform only so it
+   can be smoothly animated (no background swap needed). */
+.theme-switch__slider::after {
+  position: absolute;
+  top: 50%;
+  /* ::before left edge is 0.25em; bite center at 32% of 0.9em ≈ 0.29em from thumb left */
+  left: calc(0.25em + 0.9em * 0.32 - 0.36em);
+  width: 0.72em;
+  height: 0.72em;
+  border-radius: 50%;
+  background: var(--color-control-background-active);
+  content: "";
+  transform: translateY(-50%) scale(0.3);
+  opacity: 0;
+  transition:
+    transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 350ms ease,
+    background-color 250ms ease;
+  pointer-events: none;
 }
 
 .theme-switch input:checked + .theme-switch__slider {
@@ -83,13 +105,17 @@ html {
 }
 
 .theme-switch input:checked + .theme-switch__slider::before {
-  background: radial-gradient(
-    circle at 32% 42%,
-    var(--color-transparent) 0 40%,
-    var(--color-control-icon-active) 42%
-  );
+  background: var(--color-control-icon-active);
   box-shadow: none;
   transform: translate(1.4em, -50%);
+}
+
+.theme-switch input:checked + .theme-switch__slider::after {
+  /* Bite circle slides into position relative to where ::before now sits.
+     X: +1.4em to match thumb translation. Y: bite is at 42% of thumb height
+     from top = 0.072em above center. */
+  transform: translate(1.4em, calc(-50% - 0.072em)) scale(1);
+  opacity: 1;
 }
 
 .theme-switch input:focus-visible + .theme-switch__slider {
@@ -204,6 +230,7 @@ footer {
   .navbar,
   .theme-switch__slider,
   .theme-switch__slider::before,
+  .theme-switch__slider::after,
   a,
   .section,
   .project-card,
