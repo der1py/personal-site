@@ -19,9 +19,7 @@ function App() {
         <Section id="about" title="Hi, I'm Luke :D" headingLevel="h1">
           <p>
             Software Engineering @ UWaterloo
-            <br />I like learning about programming and building cool projects.
-            I've had experience with applied ML, constraint programming,
-            robotics, game dev, and web dev. Outside of tech, I enjoy playing
+            <br />I'm currently interested in robotics and machine learning, though I'm eager to gain exposure to all subfields of software engineering. Outside of tech, I enjoy playing
             badminton. I'd be down to connect at any of the{" "}
             <a href="/#links">links</a> below!
           </p>
